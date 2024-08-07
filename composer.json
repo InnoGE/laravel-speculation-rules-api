@@ -1,6 +1,6 @@
 {
     "name": "innoge/laravel-speculation-rules-api",
-    "description": "A package to add speculation rules to your Laravel application.",
+    "description": "A Laravel package as streamlined solution to utilize the speculation rules api.",
     "keywords": [
         "InnoGE",
         "laravel"
