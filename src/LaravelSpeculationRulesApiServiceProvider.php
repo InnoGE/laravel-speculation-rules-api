@@ -21,11 +21,13 @@ class LaravelSpeculationRulesApiServiceProvider extends PackageServiceProvider
     {
         Route::macro('prerender', function (string $eagerness = 'moderate') {
             LaravelSpeculationRulesApi::$routeSpeculationRules['prerender'][$eagerness][] = $this->uri;
+
             return $this;
         });
 
         Route::macro('prefetch', function (string $eagerness = 'moderate') {
             LaravelSpeculationRulesApi::$routeSpeculationRules['prefetch'][$eagerness][] = $this->uri;
+
             return $this;
         });
 
