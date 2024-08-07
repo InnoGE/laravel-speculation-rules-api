@@ -20,10 +20,10 @@ test('route macros', function () {
         'prefetch' => [],
     ];
 
-    Route::get('page-1', fn() => null)->prerender();
-    Route::get('page-2', fn() => null)->prerender('eager');
-    Route::get('page-3', fn() => null)->prefetch();
-    Route::get('page-4', fn() => null)->prefetch('eager');
+    Route::get('page-1', fn () => null)->prerender();
+    Route::get('page-2', fn () => null)->prerender('eager');
+    Route::get('page-3', fn () => null)->prefetch();
+    Route::get('page-4', fn () => null)->prefetch('eager');
 
     expect(LaravelSpeculationRulesApi::$routeSpeculationRules)->toMatchSnapshot();
 });
@@ -34,8 +34,8 @@ test('speculation rules are merged properly', function () {
         'prefetch' => [],
     ];
 
-    Route::get('page-1', fn() => null)->prerender();
-    Route::get('page-2', fn() => null)->prerender('eager');
+    Route::get('page-1', fn () => null)->prerender();
+    Route::get('page-2', fn () => null)->prerender('eager');
 
     config()->set('speculation-rules-api', [
         'prerender' => [
