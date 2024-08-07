@@ -30,3 +30,4 @@ jobs:
           branch: main
           commit_message: Update CHANGELOG
           file_pattern: CHANGELOG.md
+

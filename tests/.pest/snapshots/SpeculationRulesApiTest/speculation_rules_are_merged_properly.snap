@@ -1,0 +1,34 @@
+{
+    "prerender": [
+        {
+            "source": "list",
+            "urls": [
+                "page-1"
+            ],
+            "eagerness": "moderate"
+        },
+        {
+            "source": "list",
+            "urls": [
+                "page-2"
+            ],
+            "eagerness": "eager"
+        },
+        {
+            "source": "list",
+            "urls": [
+                "page-3"
+            ],
+            "eagerness": "conservative"
+        }
+    ],
+    "prefetch": [
+        {
+            "urls": [
+                "page-4"
+            ],
+            "referrer_policy": "no-referrer",
+            "eagerness": "moderate"
+        }
+    ]
+}

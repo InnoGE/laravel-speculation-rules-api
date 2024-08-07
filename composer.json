@@ -1,17 +1,16 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "innoge/laravel-speculation-rules-api",
+    "description": "A package to add speculation rules to your Laravel application.",
     "keywords": [
-        ":vendor_name",
-        "laravel",
-        ":package_slug"
+        "InnoGE",
+        "laravel"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/innoge/laravel-speculation-rules-api",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Daniel Seuffer",
+            "email": "authanram@users.noreply.github.com",
             "role": "Developer"
         }
     ],
@@ -21,9 +20,10 @@
         "illuminate/contracts": "^10.0||^11.0"
     },
     "require-dev": {
-        "laravel/pint": "^1.14",
-        "nunomaduro/collision": "^8.1.1||^7.10.0",
         "larastan/larastan": "^2.9",
+        "laravel/pint": "^1.14",
+        "mockery/mockery": "^1.6",
+        "nunomaduro/collision": "^8.1.1||^7.10.0",
         "orchestra/testbench": "^9.0.0||^8.22.0",
         "pestphp/pest": "^2.34",
         "pestphp/pest-plugin-arch": "^2.7",
@@ -35,13 +35,12 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "InnoGE\\LaravelSpeculationRulesApi\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/",
+            "InnoGE\\LaravelSpeculationRulesApi\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -73,11 +72,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
-            ],
-            "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
-            }
+                "InnoGE\\LaravelSpeculationRulesApi\\LaravelSpeculationRulesApiServiceProvider"
+            ]
         }
     },
     "minimum-stability": "dev",

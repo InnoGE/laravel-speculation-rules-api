@@ -1,0 +1,18 @@
+{
+    "prerender": {
+        "moderate": [
+            "page-1"
+        ],
+        "eager": [
+            "page-2"
+        ]
+    },
+    "prefetch": {
+        "moderate": [
+            "page-3"
+        ],
+        "eager": [
+            "page-4"
+        ]
+    }
+}
