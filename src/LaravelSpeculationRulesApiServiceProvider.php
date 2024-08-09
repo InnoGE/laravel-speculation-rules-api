@@ -19,13 +19,19 @@ class LaravelSpeculationRulesApiServiceProvider extends PackageServiceProvider
     public function bootingPackage(): void
     {
         Route::macro('prerender', function (string $eagerness = 'moderate') {
-            LaravelSpeculationRulesApi::$routeSpeculationRules['prerender'][$eagerness][] = $this->uri;
+            LaravelSpeculationRulesApi::$routeSpeculationRules['prerender'][] = [
+                'eagerness' => $eagerness,
+                'uri' => $this->uri,
+            ];
 
             return $this;
         });
 
         Route::macro('prefetch', function (string $eagerness = 'moderate') {
-            LaravelSpeculationRulesApi::$routeSpeculationRules['prefetch'][$eagerness][] = $this->uri;
+            LaravelSpeculationRulesApi::$routeSpeculationRules['prefetch'][] = [
+                'eagerness' => $eagerness,
+                'uri' => $this->uri,
+            ];
 
             return $this;
         });

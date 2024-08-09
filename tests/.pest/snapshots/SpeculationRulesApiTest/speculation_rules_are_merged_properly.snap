@@ -1,23 +1,49 @@
 {
     "prerender": [
         {
-            "source": "list",
-            "urls": [
-                "page-1"
-            ],
+            "where": {
+                "and": [
+                    {
+                        "href_matches": "\/page-1\/*"
+                    },
+                    {
+                        "not": {
+                            "href_matches": "\/page-1\/*\/*"
+                        }
+                    }
+                ]
+            },
             "eagerness": "moderate"
         },
         {
-            "source": "list",
-            "urls": [
-                "page-2"
-            ],
+            "where": {
+                "and": [
+                    {
+                        "href_matches": "\/page-2\/*\/*"
+                    },
+                    {
+                        "not": {
+                            "href_matches": "\/page-2\/*\/*\/*"
+                        }
+                    }
+                ]
+            },
+            "eagerness": "eager"
+        },
+        {
+            "where": {
+                "and": [
+                    {
+                        "href_matches": "page-3"
+                    }
+                ]
+            },
             "eagerness": "eager"
         },
         {
             "source": "list",
             "urls": [
-                "page-3"
+                "page-4"
             ],
             "eagerness": "conservative"
         }
@@ -25,7 +51,7 @@
     "prefetch": [
         {
             "urls": [
-                "page-4"
+                "page-5"
             ],
             "referrer_policy": "no-referrer",
             "eagerness": "moderate"

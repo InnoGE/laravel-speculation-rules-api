@@ -1,18 +1,22 @@
 {
-    "prerender": {
-        "moderate": [
-            "page-1"
-        ],
-        "eager": [
-            "page-2"
-        ]
-    },
-    "prefetch": {
-        "moderate": [
-            "page-3"
-        ],
-        "eager": [
-            "page-4"
-        ]
-    }
+    "prerender": [
+        {
+            "eagerness": "moderate",
+            "uri": "page-1"
+        },
+        {
+            "eagerness": "eager",
+            "uri": "page-2"
+        }
+    ],
+    "prefetch": [
+        {
+            "eagerness": "moderate",
+            "uri": "page-3"
+        },
+        {
+            "eagerness": "eager",
+            "uri": "page-4"
+        }
+    ]
 }

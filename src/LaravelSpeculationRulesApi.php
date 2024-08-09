@@ -9,27 +9,42 @@ class LaravelSpeculationRulesApi
     private static function prerenderRules(): array
     {
         return collect(self::$routeSpeculationRules['prerender'] ?? [])
-            ->map(fn (array $urls, string $eagerness) => [
-                'source' => 'list',
-                'urls' => $urls,
-                'eagerness' => $eagerness,
+            ->map(fn (array $item) => [
+                'where' => ['and' => self::createRule($item['uri'])],
+                'eagerness' => $item['eagerness'],
             ])
             ->values()
-            ->merge(config('speculation-rules-api.prerender', []))
+            ->merge(array_filter(config('speculation-rules-api.prerender', [])))
             ->toArray();
     }
 
     private static function prefetchRules(): array
     {
         return collect(self::$routeSpeculationRules['prefetch'] ?? [])
-            ->map(fn (array $urls, string $eagerness) => [
-                'urls' => $urls,
-                'eagerness' => $eagerness,
+            ->map(fn (array $item) => [
+                'where' => ['and' => self::createRule($item['uri'])],
+                'eagerness' => $item['eagerness'],
                 'referrer_policy' => 'no-referrer',
             ])
             ->values()
-            ->merge(config('speculation-rules-api.prefetch', []))
+            ->merge(array_filter(config('speculation-rules-api.prefetch', [])))
             ->toArray();
+    }
+
+    public static function createRule(string $uri): array
+    {
+        preg_match_all('/{[^}]+}/', $uri, $matches);
+
+        if (count($matches[0]) === 0) {
+            return [['href_matches' => $uri]];
+        }
+
+        $hrefMatches = trim(preg_replace('/{[^}]+}/', '*', $uri), '/');
+
+        return [
+            ['href_matches' => "/$hrefMatches"],
+            ['not' => ['href_matches' => "/$hrefMatches/*"]],
+        ];
     }
 
     public static function speculationRules(): array

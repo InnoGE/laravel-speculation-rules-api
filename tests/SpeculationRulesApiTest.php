@@ -34,20 +34,21 @@ test('speculation rules are merged properly', function () {
         'prefetch' => [],
     ];
 
-    Route::get('page-1', fn () => null)->prerender();
-    Route::get('page-2', fn () => null)->prerender('eager');
+    Route::get('page-1/{param1}', fn () => null)->prerender();
+    Route::get('page-2/{param1}/{param2}', fn () => null)->prerender('eager');
+    Route::get('page-3', fn () => null)->prerender('eager');
 
     config()->set('speculation-rules-api', [
         'prerender' => [
             [
                 'source' => 'list',
-                'urls' => ['page-3'],
+                'urls' => ['page-4'],
                 'eagerness' => 'conservative',
             ],
         ],
         'prefetch' => [
             [
-                'urls' => ['page-4'],
+                'urls' => ['page-5'],
                 'referrer_policy' => 'no-referrer',
                 'eagerness' => 'moderate',
             ],
@@ -55,4 +56,21 @@ test('speculation rules are merged properly', function () {
     ]);
 
     expect(LaravelSpeculationRulesApi::speculationRules())->toMatchSnapshot();
+});
+
+test('rule creation', function () {
+    expect(LaravelSpeculationRulesApi::createRule('page'))
+        ->toBe([
+            ['href_matches' => 'page'],
+        ])
+        ->and(LaravelSpeculationRulesApi::createRule('page/{param}'))
+        ->toBe([
+            ['href_matches' => '/page/*'],
+            ['not' => ['href_matches' => '/page/*/*']],
+        ])
+        ->and(LaravelSpeculationRulesApi::createRule('page/{param1}/{param2}/{param3}'))
+        ->toBe([
+            ['href_matches' => '/page/*/*/*'],
+            ['not' => ['href_matches' => '/page/*/*/*/*']],
+        ]);
 });

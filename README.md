@@ -30,10 +30,14 @@ This is the contents of the published config file:
 ```php
 return [
     'prerender' => [
-        //
+        [
+            //        
+        ],
     ],
     'prefetch' => [
-        //
+        [
+            //        
+        ],
     ],
 ];
 ```
@@ -79,6 +83,14 @@ Route::get('/page-1', function () {
     return view('...');
 })->prefetch('eager');
 ```
+
+### Prerender/Prefetch
+
+If you prerender an url, all resources will be fetched and the DOM will be rendered in the background. This will avoid most of the layout shifts you had before. If you prefetch a page, only the resources will be fetched. This can lead to a much faster page load.
+
+For more information refer to the following pages:
+- [Prerender](https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API#using_prerendering)
+- [Prefetch](https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API#unsafe_prefetching)
 
 ### Eagerness Levels (available as of Chrome 122)
 
