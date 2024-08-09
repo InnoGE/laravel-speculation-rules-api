@@ -24,16 +24,16 @@ return [
     */
 
     'prerender' => [
-//        [
-//            'source' => 'list',
-//            'urls' => ['page-1', 'page-2'],
-//            'eagerness' => 'moderate',
-//        ],
-//        // parameter usage example
-//        [
-//            ['href_matches' => '/page-3/*'],
-//            ['not' => ['href_matches' => '/page-3/*/*']],
-//        ],
+        //        [
+        //            'source' => 'list',
+        //            'urls' => ['page-1', 'page-2'],
+        //            'eagerness' => 'moderate',
+        //        ],
+        //        // parameter usage example
+        //        [
+        //            ['href_matches' => '/page-3/*'],
+        //            ['not' => ['href_matches' => '/page-3/*/*']],
+        //        ],
     ],
 
     /*
@@ -46,11 +46,11 @@ return [
     */
 
     'prefetch' => [
-//        [
-//            'urls' => ['page-4'],
-//            'referrer_policy' => 'no-referrer',
-//            'eagerness' => 'moderate',
-//        ],
+        //        [
+        //            'urls' => ['page-4'],
+        //            'referrer_policy' => 'no-referrer',
+        //            'eagerness' => 'moderate',
+        //        ],
     ],
 
 ];
