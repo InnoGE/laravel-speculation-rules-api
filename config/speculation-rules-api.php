@@ -2,9 +2,13 @@
 
 return [
     'prerender' => [
-        //
+        [
+            //
+        ],
     ],
     'prefetch' => [
-        //
+        [
+            //
+        ],
     ],
 ];
