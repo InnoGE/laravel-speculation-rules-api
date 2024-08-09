@@ -130,6 +130,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 ## Credits
 
 - [Daniel Seuffer](https://github.com/authanram)
+- [Tim Geisendörfer](https://github.com/geisi)
 - [All Contributors](../../contributors) &nbsp;❤️
 
 ## License
