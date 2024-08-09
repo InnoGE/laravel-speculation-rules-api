@@ -28,29 +28,72 @@ php artisan vendor:publish --tag="laravel-speculation-rules-api-config"
 This is the contents of the published config file:
 
 ```php
+<?php
+
 return [
+    /*
+    |--------------------------------------------------------------------------
+    | Default Eagerness
+    |--------------------------------------------------------------------------
+    |
+    | This value is the default eagerness for the prerender and prefetch rules.
+    | You can set it to 'eager', 'moderate' or 'conservative'.
+    |
+    */
+
+    'default_eagerness' => 'moderate',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Prerender Rules
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify custom prerender rules for the application.
+    |
+    */
+
     'prerender' => [
-        [
-            //        
-        ],
+//        [
+//            'source' => 'list',
+//            'urls' => ['page-1', 'page-2'],
+//            'eagerness' => 'moderate',
+//        ],
+//        // parameter usage example
+//        [
+//            ['href_matches' => '/page-3/*'],
+//            ['not' => ['href_matches' => '/page-3/*/*']],
+//        ],
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Prefetch Rules
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify custom prefetch rules for the application.
+    |
+    */
+
     'prefetch' => [
-        [
-            //        
-        ],
+//        [
+//            'urls' => ['page-4'],
+//            'referrer_policy' => 'no-referrer',
+//            'eagerness' => 'moderate',
+//        ],
     ],
+
 ];
 ```
 
-Add the following Blade directive before the end `body` tag in your template.
+Add the following Blade directive inside the `head` tag.
 
 ```php
 <html>
+<head>
+<!-- ... -->
+@speculationRulesApi
+</head>
 ...
-<body>
-    ...
-    @speculationRulesApi
-</body>
 </html>
 ```
 
@@ -102,6 +145,9 @@ Alternatively you can utilize the Speculation Rules API through the package conf
 
 ```php
 return [
+
+    // ...
+
     'prerender' => [
         [
             'source' => 'list',
@@ -109,6 +155,7 @@ return [
             'eagerness' => 'moderate',
         ],
     ],
+    
     'prefetch' => [
         [
             'urls' => ['page-2'],
@@ -116,6 +163,7 @@ return [
             'eagerness' => 'moderate',
         ],
     ],
+    
 ];
 ```
 
