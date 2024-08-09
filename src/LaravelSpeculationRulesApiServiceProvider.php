@@ -13,7 +13,6 @@ class LaravelSpeculationRulesApiServiceProvider extends PackageServiceProvider
     {
         $package
             ->name('laravel-speculation-rules-api')
-            ->hasViews('laravel-speculation-rules-api')
             ->hasConfigFile();
     }
 
