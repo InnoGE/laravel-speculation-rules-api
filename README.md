@@ -81,9 +81,9 @@ Route::get('/page-1', function () {
 
 ### Eagerness Levels (available as of Chrome 122)
 
-- `eager` Loads the corresponding url immediately.
-- `moderate` Loads the corresponding url when the user hovers a link that points to the corresponding route.
-- `conservative` Loads the corresponding url when the user clicks a link that points to the corresponding route.
+- `eager` This setting triggers the immediate loading of the specified URL without any user interaction.
+- `moderate` The corresponding URL is preloaded when the user hovers over a link that directs to the relevant route.
+- `conservative` The URL only loads when the user actively clicks on a link leading to the corresponding route.
 
 Alternatively you can utilize the Speculation Rules API through the package configuration, e.g.:
 
