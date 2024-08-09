@@ -28,6 +28,25 @@ test('route macros', function () {
     expect(LaravelSpeculationRulesApi::$routeSpeculationRules)->toMatchSnapshot();
 });
 
+test('default eagerness', function () {
+    LaravelSpeculationRulesApi::$routeSpeculationRules = [
+        'prerender' => [],
+        'prefetch' => [],
+    ];
+
+    Route::get('page-1', fn () => null)->prerender();
+
+    expect(data_get(LaravelSpeculationRulesApi::$routeSpeculationRules, 'prerender.0.eagerness'))
+        ->toBe('moderate');
+
+    config()->set('speculation-rules-api.default_eagerness', 'eager');
+
+    Route::get('page-1', fn () => null)->prerender();
+
+    expect(data_get(LaravelSpeculationRulesApi::$routeSpeculationRules, 'prerender.1.eagerness'))
+        ->toBe('eager');
+});
+
 test('speculation rules are merged properly', function () {
     LaravelSpeculationRulesApi::$routeSpeculationRules = [
         'prerender' => [],
