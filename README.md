@@ -8,7 +8,8 @@
 This Laravel package provides a streamlined solution to utilize the [Speculation Rules API](https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API), allowing you to speed up your website performance significantly.
 
 > [!NOTE]
-> The Speculation Rules API is an experimental technology. Further information can be found at the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API).
+> The Speculation Rules API is an experimental technology.<br>
+> Further information can be found at the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API).
 
 ## Installation
 
