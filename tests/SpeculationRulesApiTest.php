@@ -74,7 +74,8 @@ test('speculation rules are merged properly', function () {
         ],
     ]);
 
-    expect(LaravelSpeculationRulesApi::speculationRules())->toMatchSnapshot();
+    expect(json_encode(LaravelSpeculationRulesApi::speculationRules(), JSON_PRETTY_PRINT))
+        ->toMatchSnapshot();
 });
 
 test('rule creation', function () {
