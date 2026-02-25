@@ -14,7 +14,7 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         php: [8.4, 8.3, 8.2]
-        laravel: ["^13.0", "^12.0", "^11.0", "^10.0"]
+        laravel: ["^13.0", "^12.0", "^11.0"]
         stability: [prefer-lowest, prefer-stable]
         include:
           - laravel: "^13.0"
@@ -23,8 +23,6 @@ jobs:
             testbench: 10.*
           - laravel: "^11.0"
             testbench: 9.*
-          - laravel: "^10.0"
-            testbench: 8.*
         exclude:
           - laravel: "^13.0"
             php: 8.2
